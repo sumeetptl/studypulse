@@ -1,8 +1,7 @@
-from .base import *
+from .base import BASE_DIR
 
 
 ALLOWED_HOSTS = ['localhost']
-DEBUG = True
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',

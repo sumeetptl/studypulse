@@ -1,9 +1,15 @@
 import os
 import sys
+from studypulse.settings import base
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'studypulse.settings')
+    if base.DEBUG:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                              'studypulse.settings.local')
+    else:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                              'studypulse.settings.production')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
