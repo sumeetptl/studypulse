@@ -169,3 +169,5 @@ SITE_ID = 1
 APPEND_SLASH = False
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+ROOT_URLCONF = 'studypulse.urls'
