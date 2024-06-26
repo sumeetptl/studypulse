@@ -1,5 +1,6 @@
 import os
 from .base import *
+import dj_database_url
 
 
 DATABASES = {
@@ -12,3 +13,7 @@ DATABASES = {
         'PORT': int(os.environ.get('DATABASE_PORT')),
     }
 }
+
+# postgresql://root:uWB0oEy90tzTqPyt36CapiLp5TaTNkDG@dpg-cptveo08fa8c738rlh90-a.oregon-postgres.render.com/studypulse
+DATABASES["default"] = dj_database_url.parse(
+    "postgresql://root:uWB0oEy90tzTqPyt36CapiLp5TaTNkDG@dpg-cptveo08fa8c738rlh90-a.oregon-postgres.render.com/studypulse")
