@@ -4,7 +4,7 @@ from studypulse.settings import base
 
 
 def main():
-    if base.DEBUG:
+    if base.DEBUG == 'True':
         os.environ.setdefault('DJANGO_SETTINGS_MODULE',
                               'studypulse.settings.local')
     else:
