@@ -16,3 +16,5 @@ DATABASES = {
 
 # postgresql://root:uWB0oEy90tzTqPyt36CapiLp5TaTNkDG@dpg-cptveo08fa8c738rlh90-a.oregon-postgres.render.com/studypulse
 DATABASES["default"] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
+
+ROOT_URLCONF = 'studypulse.urls'
