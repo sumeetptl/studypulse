@@ -18,3 +18,8 @@ DATABASES = {}
 DATABASES["default"] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
 ROOT_URLCONF = 'studypulse.urls'
+
+STATIC_URL = "static/"
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
