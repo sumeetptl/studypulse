@@ -63,3 +63,8 @@ class MessageListCreateAPIView(generics.ListCreateAPIView):
             "message": "Message created Successfully",
             "room": serializer.data
         }, status=201)
+
+
+class MessageRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Message.objects.all()
+    serializer_class = MessageSerializer
