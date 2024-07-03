@@ -5,13 +5,17 @@ from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnl
 
 
 from .models import Topic, Room, Message
+from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import TopicSerializer, RoomSerializer, MessageSerializer
 
 
 class TopicListCreateAPIView(generics.ListCreateAPIView):
     queryset = Topic.objects.all()
     serializer_class = TopicSerializer
+    filter_backends = [DjangoFilterBackend]
     permission_classes = [IsAuthenticatedOrReadOnly]
+    filterset_fields = ['name']
+    # paginationc_class = CustomPagination
 
 
 class TopicRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
@@ -22,7 +26,9 @@ class TopicRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
 class RoomListCreateAPIView(generics.ListCreateAPIView):
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['topic']
 
     def post(self, request, **kwargs):
         data = request.data

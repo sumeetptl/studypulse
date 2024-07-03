@@ -4,9 +4,14 @@ from .models import Topic, Room, Message
 
 
 class TopicSerializer(serializers.ModelSerializer):
+    rooms_count = serializers.SerializerMethodField()
+
     class Meta:
         model = Topic
-        fields = ['id', 'name', 'description']
+        fields = ['id', 'name', 'description', 'rooms_count']
+
+    def get_rooms_count(self, obj):
+        return obj.rooms.count()
 
 
 class RoomSerializer(serializers.ModelSerializer):
